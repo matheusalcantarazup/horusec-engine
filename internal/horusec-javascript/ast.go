@@ -336,7 +336,7 @@ func (p *parser) parseStmt(node *cst.Node) ast.Stmt {
 		// TODO: handle switch cases with labels
 		// inner: switch (i) {
 		// case 1:
-		//	 break inner
+		//		 break inner
 		// }
 		stmt := &ast.SwitchStatement{
 			Position: ast.NewPosition(node),
@@ -382,10 +382,42 @@ func (p *parser) parseStmt(node *cst.Node) ast.Stmt {
 		}
 
 		if label := node.ChildByFieldName("label"); label != nil {
-			stmt.Label = p.parseStmt(label)
+			stmt.Label = ast.NewIdent(label)
 		}
 
 		return stmt
+
+	case ContinueStatement:
+		stmt := &ast.ContinueStatement{
+			Position: ast.NewPosition(node),
+		}
+
+		if label := node.ChildByFieldName("label"); label != nil {
+			stmt.Label = ast.NewIdent(label)
+		}
+
+		return stmt
+	case LabeledStatement:
+		stmt := &ast.LabeledStatement{
+			Position: ast.NewPosition(node),
+		}
+		body := make([]ast.Stmt, 0, node.NamedChildCount())
+		cst.IterNamedChilds(node, func(node *cst.Node) {
+			body = append(body, p.parseStmt(node))
+		})
+		if label := node.ChildByFieldName("label"); label != nil {
+			stmt.Label = ast.NewIdent(label)
+		}
+		stmt.Body = body
+
+		return stmt
+	case StatementIdentifier:
+		stmt := &ast.StatementIdentifier{
+			Position: ast.NewPosition(node),
+		}
+
+		return stmt
+
 	default:
 		panic(fmt.Sprintf("not handled statement of type <%s>", node.Type()))
 	}

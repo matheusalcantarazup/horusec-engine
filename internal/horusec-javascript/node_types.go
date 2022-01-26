@@ -78,6 +78,9 @@ const (
 	SwitchCase          = "switch_case"
 	SwitchDefault       = "switch_default"
 	BreakStatement      = "break_statement"
+	ContinueStatement   = "continue_statement"
+	StatementIdentifier = "statement_identifier"
+	LabeledStatement    = "labeled_statement"
 
 	// ------------------------------------------------
 	//

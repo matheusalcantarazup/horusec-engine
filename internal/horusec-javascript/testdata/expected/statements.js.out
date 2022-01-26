@@ -175,239 +175,355 @@
    174  .  .  .  Body: *ast.BlockStmt {
    175  .  .  .  .  Position: ast.Position {}
    176  .  .  .  .  List: []ast.Stmt (len = 1) {
-   177  .  .  .  .  .  0: *ast.WhileStmt {
+   177  .  .  .  .  .  0: *ast.LabeledStatement {
    178  .  .  .  .  .  .  Position: ast.Position {}
-   179  .  .  .  .  .  .  Cond: *ast.BinaryExpr {
-   180  .  .  .  .  .  .  .  Position: ast.Position {}
-   181  .  .  .  .  .  .  .  Left: *ast.Ident {
-   182  .  .  .  .  .  .  .  .  Name: "i"
-   183  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   184  .  .  .  .  .  .  .  }
-   185  .  .  .  .  .  .  .  Op: ""
-   186  .  .  .  .  .  .  .  Right: *ast.BasicLit {
-   187  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   188  .  .  .  .  .  .  .  .  Kind: "number"
-   189  .  .  .  .  .  .  .  .  Value: "5"
-   190  .  .  .  .  .  .  .  }
-   191  .  .  .  .  .  .  }
-   192  .  .  .  .  .  .  Body: *ast.BlockStmt {
-   193  .  .  .  .  .  .  .  Position: ast.Position {}
-   194  .  .  .  .  .  .  .  List: []ast.Stmt (len = 1) {
-   195  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
-   196  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   197  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
-   198  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   199  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
-   200  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   201  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
-   202  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
-   203  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   204  .  .  .  .  .  .  .  .  .  .  .  }
-   205  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
-   206  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
-   207  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   208  .  .  .  .  .  .  .  .  .  .  .  }
-   209  .  .  .  .  .  .  .  .  .  .  }
-   210  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
-   211  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
-   212  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   213  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
-   214  .  .  .  .  .  .  .  .  .  .  .  .  Value: "test"
-   215  .  .  .  .  .  .  .  .  .  .  .  }
-   216  .  .  .  .  .  .  .  .  .  .  }
-   217  .  .  .  .  .  .  .  .  .  }
-   218  .  .  .  .  .  .  .  .  }
-   219  .  .  .  .  .  .  .  }
-   220  .  .  .  .  .  .  }
-   221  .  .  .  .  .  }
-   222  .  .  .  .  }
-   223  .  .  .  }
-   224  .  .  }
-   225  .  .  2: *ast.FuncDecl {
-   226  .  .  .  Position: ast.Position {}
-   227  .  .  .  Name: *ast.Ident {
-   228  .  .  .  .  Name: "SwitchStatement"
-   229  .  .  .  .  Position: ast.Position {}
-   230  .  .  .  }
-   231  .  .  .  Type: *ast.FuncType {
-   232  .  .  .  .  Position: ast.Position {}
-   233  .  .  .  .  Params: *ast.FieldList {
-   234  .  .  .  .  .  Position: ast.Position {}
-   235  .  .  .  .  }
-   236  .  .  .  }
-   237  .  .  .  Body: *ast.BlockStmt {
-   238  .  .  .  .  Position: ast.Position {}
-   239  .  .  .  .  List: []ast.Stmt (len = 2) {
-   240  .  .  .  .  .  0: *ast.AssignStmt {
-   241  .  .  .  .  .  .  Position: ast.Position {}
-   242  .  .  .  .  .  .  LHS: []ast.Expr (len = 1) {
-   243  .  .  .  .  .  .  .  0: *ast.Ident {
-   244  .  .  .  .  .  .  .  .  Name: "fruits"
-   245  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   246  .  .  .  .  .  .  .  }
-   247  .  .  .  .  .  .  }
-   248  .  .  .  .  .  .  RHS: []ast.Expr (len = 1) {
-   249  .  .  .  .  .  .  .  0: *ast.BasicLit {
-   250  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   251  .  .  .  .  .  .  .  .  Kind: "string"
-   252  .  .  .  .  .  .  .  .  Value: "Oranges"
-   253  .  .  .  .  .  .  .  }
-   254  .  .  .  .  .  .  }
-   255  .  .  .  .  .  }
-   256  .  .  .  .  .  1: *ast.SwitchStatement {
-   257  .  .  .  .  .  .  Position: ast.Position {}
-   258  .  .  .  .  .  .  Value: *ast.Ident {
-   259  .  .  .  .  .  .  .  Name: "fruits"
-   260  .  .  .  .  .  .  .  Position: ast.Position {}
-   261  .  .  .  .  .  .  }
-   262  .  .  .  .  .  .  Body: *ast.BlockStmt {
-   263  .  .  .  .  .  .  .  Position: ast.Position {}
-   264  .  .  .  .  .  .  .  List: []ast.Stmt (len = 4) {
-   265  .  .  .  .  .  .  .  .  0: *ast.SwitchCase {
-   266  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   267  .  .  .  .  .  .  .  .  .  Cond: *ast.BasicLit {
-   268  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   269  .  .  .  .  .  .  .  .  .  .  Kind: "string"
-   270  .  .  .  .  .  .  .  .  .  .  Value: "Oranges"
-   271  .  .  .  .  .  .  .  .  .  }
-   272  .  .  .  .  .  .  .  .  .  Body: []ast.Stmt (len = 2) {
-   273  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
-   274  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   275  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
-   276  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   277  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
-   278  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   279  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
-   280  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
-   281  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   282  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   283  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
-   284  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
-   285  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   286  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   287  .  .  .  .  .  .  .  .  .  .  .  .  }
-   288  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
-   289  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
-   290  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   291  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
-   292  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "Oranges"
-   293  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   179  .  .  .  .  .  .  Label: *ast.Ident {
+   180  .  .  .  .  .  .  .  Name: "whileStmt"
+   181  .  .  .  .  .  .  .  Position: ast.Position {}
+   182  .  .  .  .  .  .  }
+   183  .  .  .  .  .  .  Body: []ast.Stmt (len = 2) {
+   184  .  .  .  .  .  .  .  0: *ast.StatementIdentifier {
+   185  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   186  .  .  .  .  .  .  .  }
+   187  .  .  .  .  .  .  .  1: *ast.WhileStmt {
+   188  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   189  .  .  .  .  .  .  .  .  Cond: *ast.BinaryExpr {
+   190  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   191  .  .  .  .  .  .  .  .  .  Left: *ast.Ident {
+   192  .  .  .  .  .  .  .  .  .  .  Name: "i"
+   193  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   194  .  .  .  .  .  .  .  .  .  }
+   195  .  .  .  .  .  .  .  .  .  Op: ""
+   196  .  .  .  .  .  .  .  .  .  Right: *ast.BasicLit {
+   197  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   198  .  .  .  .  .  .  .  .  .  .  Kind: "number"
+   199  .  .  .  .  .  .  .  .  .  .  Value: "5"
+   200  .  .  .  .  .  .  .  .  .  }
+   201  .  .  .  .  .  .  .  .  }
+   202  .  .  .  .  .  .  .  .  Body: *ast.BlockStmt {
+   203  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   204  .  .  .  .  .  .  .  .  .  List: []ast.Stmt (len = 3) {
+   205  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   206  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   207  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
+   208  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   209  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   210  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   211  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
+   212  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
+   213  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   214  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   215  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   216  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
+   217  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   218  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   219  .  .  .  .  .  .  .  .  .  .  .  .  }
+   220  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
+   221  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   222  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   223  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   224  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "test"
+   225  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   226  .  .  .  .  .  .  .  .  .  .  .  .  }
+   227  .  .  .  .  .  .  .  .  .  .  .  }
+   228  .  .  .  .  .  .  .  .  .  .  }
+   229  .  .  .  .  .  .  .  .  .  .  1: *ast.IfStmt {
+   230  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   231  .  .  .  .  .  .  .  .  .  .  .  Cond: *ast.BinaryExpr {
+   232  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   233  .  .  .  .  .  .  .  .  .  .  .  .  Left: *ast.Ident {
+   234  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "i"
+   235  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   236  .  .  .  .  .  .  .  .  .  .  .  .  }
+   237  .  .  .  .  .  .  .  .  .  .  .  .  Op: ""
+   238  .  .  .  .  .  .  .  .  .  .  .  .  Right: *ast.BasicLit {
+   239  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   240  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "number"
+   241  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "4"
+   242  .  .  .  .  .  .  .  .  .  .  .  .  }
+   243  .  .  .  .  .  .  .  .  .  .  .  }
+   244  .  .  .  .  .  .  .  .  .  .  .  Body: *ast.BlockStmt {
+   245  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   246  .  .  .  .  .  .  .  .  .  .  .  .  List: []ast.Stmt (len = 2) {
+   247  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   248  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   249  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
+   250  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   251  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   252  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   253  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
+   254  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
+   255  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   256  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   257  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   258  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
+   259  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   260  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   261  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   262  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
+   263  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   264  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   265  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   266  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "finish"
+   267  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   268  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   269  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   270  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   271  .  .  .  .  .  .  .  .  .  .  .  .  .  1: *ast.BreakStatement {
+   272  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   273  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Label: *ast.Ident {
+   274  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "whileStmt"
+   275  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   276  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   277  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   278  .  .  .  .  .  .  .  .  .  .  .  .  }
+   279  .  .  .  .  .  .  .  .  .  .  .  }
+   280  .  .  .  .  .  .  .  .  .  .  }
+   281  .  .  .  .  .  .  .  .  .  .  2: *ast.IfStmt {
+   282  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   283  .  .  .  .  .  .  .  .  .  .  .  Cond: *ast.BinaryExpr {
+   284  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   285  .  .  .  .  .  .  .  .  .  .  .  .  Left: *ast.Ident {
+   286  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "i"
+   287  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   288  .  .  .  .  .  .  .  .  .  .  .  .  }
+   289  .  .  .  .  .  .  .  .  .  .  .  .  Op: ""
+   290  .  .  .  .  .  .  .  .  .  .  .  .  Right: *ast.BasicLit {
+   291  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   292  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "number"
+   293  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "2"
    294  .  .  .  .  .  .  .  .  .  .  .  .  }
    295  .  .  .  .  .  .  .  .  .  .  .  }
-   296  .  .  .  .  .  .  .  .  .  .  }
-   297  .  .  .  .  .  .  .  .  .  .  1: *ast.BreakStatement {
-   298  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   299  .  .  .  .  .  .  .  .  .  .  }
-   300  .  .  .  .  .  .  .  .  .  }
-   301  .  .  .  .  .  .  .  .  }
-   302  .  .  .  .  .  .  .  .  1: *ast.SwitchCase {
-   303  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   304  .  .  .  .  .  .  .  .  .  Cond: *ast.BasicLit {
-   305  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   306  .  .  .  .  .  .  .  .  .  .  Kind: "string"
-   307  .  .  .  .  .  .  .  .  .  .  Value: "Mangoes"
-   308  .  .  .  .  .  .  .  .  .  }
-   309  .  .  .  .  .  .  .  .  .  Body: []ast.Stmt (len = 2) {
-   310  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
-   311  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   312  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
-   313  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   314  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
-   315  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   316  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
-   317  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
-   318  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   319  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   320  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
-   321  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
-   322  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   323  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   324  .  .  .  .  .  .  .  .  .  .  .  .  }
-   325  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
-   326  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
-   327  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   328  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
-   329  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "Mangoes"
-   330  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   331  .  .  .  .  .  .  .  .  .  .  .  .  }
-   332  .  .  .  .  .  .  .  .  .  .  .  }
-   333  .  .  .  .  .  .  .  .  .  .  }
-   334  .  .  .  .  .  .  .  .  .  .  1: *ast.BreakStatement {
-   335  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   336  .  .  .  .  .  .  .  .  .  .  }
-   337  .  .  .  .  .  .  .  .  .  }
-   338  .  .  .  .  .  .  .  .  }
-   339  .  .  .  .  .  .  .  .  2: *ast.SwitchCase {
-   340  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   341  .  .  .  .  .  .  .  .  .  Cond: *ast.BasicLit {
-   342  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   343  .  .  .  .  .  .  .  .  .  .  Kind: "string"
-   344  .  .  .  .  .  .  .  .  .  .  Value: "Papayas"
-   345  .  .  .  .  .  .  .  .  .  }
-   346  .  .  .  .  .  .  .  .  .  Body: []ast.Stmt (len = 2) {
-   347  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
-   348  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   349  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
-   350  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   351  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
-   352  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   353  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
-   354  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
-   355  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   356  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   357  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
-   358  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
-   359  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   360  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   361  .  .  .  .  .  .  .  .  .  .  .  .  }
-   362  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
-   363  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
-   364  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   365  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
-   366  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "Papayas"
-   367  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   368  .  .  .  .  .  .  .  .  .  .  .  .  }
-   369  .  .  .  .  .  .  .  .  .  .  .  }
-   370  .  .  .  .  .  .  .  .  .  .  }
-   371  .  .  .  .  .  .  .  .  .  .  1: *ast.BreakStatement {
-   372  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   373  .  .  .  .  .  .  .  .  .  .  }
-   374  .  .  .  .  .  .  .  .  .  }
-   375  .  .  .  .  .  .  .  .  }
-   376  .  .  .  .  .  .  .  .  3: *ast.SwitchDefault {
-   377  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   378  .  .  .  .  .  .  .  .  .  Body: []ast.Stmt (len = 1) {
-   379  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
-   380  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   381  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
-   382  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   383  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
-   384  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   385  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
-   386  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
-   387  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   388  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   389  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
-   390  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
-   391  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   392  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   393  .  .  .  .  .  .  .  .  .  .  .  .  }
-   394  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
-   395  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
-   396  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
-   397  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
-   398  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "No fruits"
-   399  .  .  .  .  .  .  .  .  .  .  .  .  .  }
-   400  .  .  .  .  .  .  .  .  .  .  .  .  }
-   401  .  .  .  .  .  .  .  .  .  .  .  }
-   402  .  .  .  .  .  .  .  .  .  .  }
-   403  .  .  .  .  .  .  .  .  .  }
-   404  .  .  .  .  .  .  .  .  }
-   405  .  .  .  .  .  .  .  }
-   406  .  .  .  .  .  .  }
-   407  .  .  .  .  .  }
-   408  .  .  .  .  }
-   409  .  .  .  }
-   410  .  .  }
-   411  .  }
-   412  }
+   296  .  .  .  .  .  .  .  .  .  .  .  Body: *ast.BlockStmt {
+   297  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   298  .  .  .  .  .  .  .  .  .  .  .  .  List: []ast.Stmt (len = 2) {
+   299  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   300  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   301  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
+   302  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   303  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   304  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   305  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
+   306  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
+   307  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   308  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   309  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   310  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
+   311  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   312  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   313  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   314  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
+   315  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   316  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   317  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   318  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "two"
+   319  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   320  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   321  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   322  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   323  .  .  .  .  .  .  .  .  .  .  .  .  .  1: *ast.ContinueStatement {
+   324  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   325  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Label: *ast.Ident {
+   326  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "whileStmt"
+   327  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   328  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   329  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   330  .  .  .  .  .  .  .  .  .  .  .  .  }
+   331  .  .  .  .  .  .  .  .  .  .  .  }
+   332  .  .  .  .  .  .  .  .  .  .  }
+   333  .  .  .  .  .  .  .  .  .  }
+   334  .  .  .  .  .  .  .  .  }
+   335  .  .  .  .  .  .  .  }
+   336  .  .  .  .  .  .  }
+   337  .  .  .  .  .  }
+   338  .  .  .  .  }
+   339  .  .  .  }
+   340  .  .  }
+   341  .  .  2: *ast.FuncDecl {
+   342  .  .  .  Position: ast.Position {}
+   343  .  .  .  Name: *ast.Ident {
+   344  .  .  .  .  Name: "SwitchStatement"
+   345  .  .  .  .  Position: ast.Position {}
+   346  .  .  .  }
+   347  .  .  .  Type: *ast.FuncType {
+   348  .  .  .  .  Position: ast.Position {}
+   349  .  .  .  .  Params: *ast.FieldList {
+   350  .  .  .  .  .  Position: ast.Position {}
+   351  .  .  .  .  }
+   352  .  .  .  }
+   353  .  .  .  Body: *ast.BlockStmt {
+   354  .  .  .  .  Position: ast.Position {}
+   355  .  .  .  .  List: []ast.Stmt (len = 2) {
+   356  .  .  .  .  .  0: *ast.AssignStmt {
+   357  .  .  .  .  .  .  Position: ast.Position {}
+   358  .  .  .  .  .  .  LHS: []ast.Expr (len = 1) {
+   359  .  .  .  .  .  .  .  0: *ast.Ident {
+   360  .  .  .  .  .  .  .  .  Name: "fruits"
+   361  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   362  .  .  .  .  .  .  .  }
+   363  .  .  .  .  .  .  }
+   364  .  .  .  .  .  .  RHS: []ast.Expr (len = 1) {
+   365  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   366  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   367  .  .  .  .  .  .  .  .  Kind: "string"
+   368  .  .  .  .  .  .  .  .  Value: "Oranges"
+   369  .  .  .  .  .  .  .  }
+   370  .  .  .  .  .  .  }
+   371  .  .  .  .  .  }
+   372  .  .  .  .  .  1: *ast.SwitchStatement {
+   373  .  .  .  .  .  .  Position: ast.Position {}
+   374  .  .  .  .  .  .  Value: *ast.Ident {
+   375  .  .  .  .  .  .  .  Name: "fruits"
+   376  .  .  .  .  .  .  .  Position: ast.Position {}
+   377  .  .  .  .  .  .  }
+   378  .  .  .  .  .  .  Body: *ast.BlockStmt {
+   379  .  .  .  .  .  .  .  Position: ast.Position {}
+   380  .  .  .  .  .  .  .  List: []ast.Stmt (len = 4) {
+   381  .  .  .  .  .  .  .  .  0: *ast.SwitchCase {
+   382  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   383  .  .  .  .  .  .  .  .  .  Cond: *ast.BasicLit {
+   384  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   385  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   386  .  .  .  .  .  .  .  .  .  .  Value: "Oranges"
+   387  .  .  .  .  .  .  .  .  .  }
+   388  .  .  .  .  .  .  .  .  .  Body: []ast.Stmt (len = 2) {
+   389  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   390  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   391  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
+   392  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   393  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   394  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   395  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
+   396  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
+   397  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   398  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   399  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   400  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
+   401  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   402  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   403  .  .  .  .  .  .  .  .  .  .  .  .  }
+   404  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
+   405  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   406  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   407  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   408  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "Oranges"
+   409  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   410  .  .  .  .  .  .  .  .  .  .  .  .  }
+   411  .  .  .  .  .  .  .  .  .  .  .  }
+   412  .  .  .  .  .  .  .  .  .  .  }
+   413  .  .  .  .  .  .  .  .  .  .  1: *ast.BreakStatement {
+   414  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   415  .  .  .  .  .  .  .  .  .  .  }
+   416  .  .  .  .  .  .  .  .  .  }
+   417  .  .  .  .  .  .  .  .  }
+   418  .  .  .  .  .  .  .  .  1: *ast.SwitchCase {
+   419  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   420  .  .  .  .  .  .  .  .  .  Cond: *ast.BasicLit {
+   421  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   422  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   423  .  .  .  .  .  .  .  .  .  .  Value: "Mangoes"
+   424  .  .  .  .  .  .  .  .  .  }
+   425  .  .  .  .  .  .  .  .  .  Body: []ast.Stmt (len = 2) {
+   426  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   427  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   428  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
+   429  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   430  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   431  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   432  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
+   433  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
+   434  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   435  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   436  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   437  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
+   438  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   439  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   440  .  .  .  .  .  .  .  .  .  .  .  .  }
+   441  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
+   442  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   443  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   444  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   445  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "Mangoes"
+   446  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   447  .  .  .  .  .  .  .  .  .  .  .  .  }
+   448  .  .  .  .  .  .  .  .  .  .  .  }
+   449  .  .  .  .  .  .  .  .  .  .  }
+   450  .  .  .  .  .  .  .  .  .  .  1: *ast.BreakStatement {
+   451  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   452  .  .  .  .  .  .  .  .  .  .  }
+   453  .  .  .  .  .  .  .  .  .  }
+   454  .  .  .  .  .  .  .  .  }
+   455  .  .  .  .  .  .  .  .  2: *ast.SwitchCase {
+   456  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   457  .  .  .  .  .  .  .  .  .  Cond: *ast.BasicLit {
+   458  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   459  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   460  .  .  .  .  .  .  .  .  .  .  Value: "Papayas"
+   461  .  .  .  .  .  .  .  .  .  }
+   462  .  .  .  .  .  .  .  .  .  Body: []ast.Stmt (len = 2) {
+   463  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   464  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   465  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
+   466  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   467  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   468  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   469  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
+   470  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
+   471  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   472  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   473  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   474  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
+   475  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   476  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   477  .  .  .  .  .  .  .  .  .  .  .  .  }
+   478  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
+   479  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   480  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   481  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   482  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "Papayas"
+   483  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   484  .  .  .  .  .  .  .  .  .  .  .  .  }
+   485  .  .  .  .  .  .  .  .  .  .  .  }
+   486  .  .  .  .  .  .  .  .  .  .  }
+   487  .  .  .  .  .  .  .  .  .  .  1: *ast.BreakStatement {
+   488  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   489  .  .  .  .  .  .  .  .  .  .  }
+   490  .  .  .  .  .  .  .  .  .  }
+   491  .  .  .  .  .  .  .  .  }
+   492  .  .  .  .  .  .  .  .  3: *ast.SwitchDefault {
+   493  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   494  .  .  .  .  .  .  .  .  .  Body: []ast.Stmt (len = 1) {
+   495  .  .  .  .  .  .  .  .  .  .  0: *ast.ExprStmt {
+   496  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   497  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.CallExpr {
+   498  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   499  .  .  .  .  .  .  .  .  .  .  .  .  Fun: *ast.SelectorExpr {
+   500  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   501  .  .  .  .  .  .  .  .  .  .  .  .  .  Expr: *ast.Ident {
+   502  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "console"
+   503  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   504  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   505  .  .  .  .  .  .  .  .  .  .  .  .  .  Sel: *ast.Ident {
+   506  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: "log"
+   507  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   508  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   509  .  .  .  .  .  .  .  .  .  .  .  .  }
+   510  .  .  .  .  .  .  .  .  .  .  .  .  Args: []ast.Expr (len = 1) {
+   511  .  .  .  .  .  .  .  .  .  .  .  .  .  0: *ast.BasicLit {
+   512  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Position: ast.Position {}
+   513  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Kind: "string"
+   514  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Value: "No fruits"
+   515  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   516  .  .  .  .  .  .  .  .  .  .  .  .  }
+   517  .  .  .  .  .  .  .  .  .  .  .  }
+   518  .  .  .  .  .  .  .  .  .  .  }
+   519  .  .  .  .  .  .  .  .  .  }
+   520  .  .  .  .  .  .  .  .  }
+   521  .  .  .  .  .  .  .  }
+   522  .  .  .  .  .  .  }
+   523  .  .  .  .  .  }
+   524  .  .  .  .  }
+   525  .  .  .  }
+   526  .  .  }
+   527  .  }
+   528  }
