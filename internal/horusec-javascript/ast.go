@@ -593,11 +593,7 @@ func (p *parser) parseRequireCallExpr(node *cst.Node) ast.Decl {
 		assertNodeType(decl, VariableDeclarator)
 		if args := node.ChildByFieldName("arguments"); args != nil {
 			if args.NamedChildCount() > 0 {
-				return &ast.ImportDecl{
-					Path:     ast.NewIdent(args.NamedChild(0)),
-					Name:     ast.NewIdent(decl.ChildByFieldName("name")),
-					Position: ast.NewPosition(node),
-				}
+				return ast.NewImportDecl(args.NamedChild(0), decl.ChildByFieldName("name"), nil)
 			}
 		}
 	}
@@ -623,63 +619,30 @@ func (p *parser) parseImportStmt(node *cst.Node) []ast.Decl {
 
 	// Handle `import './module-name'`
 	if importClause.Type() == String {
-		return []ast.Decl{
-			&ast.ImportDecl{
-				Path:     ast.NewIdent(source),
-				Position: ast.NewPosition(node),
-			},
-		}
+		return []ast.Decl{ast.NewImportDecl(source, nil, nil)}
 	}
 
 	switch imported := importClause.NamedChild(0); imported.Type() {
 	case Identifier:
 		// Handle `import name from 'module-name'`
-		return []ast.Decl{
-			&ast.ImportDecl{
-				Name:     ast.NewIdent(imported),
-				Path:     ast.NewIdent(source),
-				Position: ast.NewPosition(node),
-			},
-		}
+		return []ast.Decl{ast.NewImportDecl(source, imported, nil)}
 	case NamedImports:
 		// Handle `import { name } from 'module-name'`
 		// and `import { name as alias } from 'module-name'`
 		var imports []ast.Decl
 		cst.IterNamedChilds(imported, func(importIdentifier *cst.Node) {
 			if name := importIdentifier.ChildByFieldName("name"); name != nil {
-				imports = append(imports, &ast.ImportDecl{
-					Name:     ast.NewIdent(name),
-					Path:     ast.NewIdent(source),
-					Alias:    p.aliasFromImportStmt(importIdentifier),
-					Position: ast.NewPosition(node),
-				})
+				imports = append(imports, ast.NewImportDecl(source, name, importIdentifier.ChildByFieldName("alias")))
 			}
 		})
 
 		return imports
 	case NamespaceImport:
 		// Handle `import * as name from 'module-name'`
-		return []ast.Decl{
-			&ast.ImportDecl{
-				Name:     ast.NewIdent(imported.NamedChild(0)),
-				Path:     ast.NewIdent(source),
-				Position: ast.NewPosition(node),
-			},
-		}
+		return []ast.Decl{ast.NewImportDecl(source, imported.NamedChild(0), nil)}
 	}
 
 	return []ast.Decl{}
-}
-
-// aliasFromImportStmt return an *ast.Ident with the alias name from import_specifier node.
-//
-// Return nil if import_specifier node don't have an alias.
-func (p *parser) aliasFromImportStmt(node *cst.Node) *ast.Ident {
-	if a := node.ChildByFieldName("alias"); a != nil {
-		return ast.NewIdent(a)
-	}
-
-	return nil
 }
 
 func (p *parser) parseCallExpr(node *cst.Node) *ast.CallExpr {

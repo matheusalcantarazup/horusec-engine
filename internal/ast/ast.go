@@ -379,9 +379,15 @@ func (*ForInStatement) node()    {}
 //
 type (
 	// ImportDecl node represents a single package/module import.
+	//
+	// Name and Alias could be empty if the import declaration don't
+	// declare a name or an alias or the import name has the same name
+	// of the import path.
+	//
+	// ImportDecl should always be created using NewImportDecl function.
 	ImportDecl struct {
 		Position
-		Name  *Ident // Import name.
+		Name  *Ident // Import name or nil.
 		Alias *Ident // Alias name or nil.
 		Path  *Ident // Import path.
 	}
@@ -437,9 +443,31 @@ type File struct {
 
 func (f *File) node() {}
 
+// NewIdent create a new sanitiezed identifier.
+//
+// Sanitized identifier here means that a single/double quotes
+// will be removed.
 func NewIdent(node *cst.Node) *Ident {
 	return &Ident{
 		Name:     string(cst.SanitizeNodeValue(node.Value())),
 		Position: NewPosition(node),
+	}
+}
+
+// NewIdentIfNotNil create a new identifier if node is not nil.
+func NewIdentIfNotNil(node *cst.Node) *Ident {
+	if node != nil {
+		return NewIdent(node)
+	}
+	return nil
+}
+
+// NewImportDecl creates a new ImportDecl node.
+func NewImportDecl(path, name, alias *cst.Node) *ImportDecl {
+	return &ImportDecl{
+		Path:     NewIdent(path),
+		Alias:    NewIdentIfNotNil(alias),
+		Name:     NewIdentIfNotNil(name),
+		Position: NewPosition(path.Parent()),
 	}
 }
